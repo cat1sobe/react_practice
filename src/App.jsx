@@ -1,9 +1,23 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
-import ColorfulMessage from "./components/ColorfulMessage";
+import { ColorfulMessage } from "./components/ColorfulMessage";
 
 const App = () => {
-  const onClickButton = () => alert("a");
+  const [face, setFace] = useState(true);
+  const [num, setNum] = useState(0);
+  const onClickButton = () => {
+    setNum(num + 1);
+  };
+  const onClickRe = () => {};
+
+  useEffect(() => {
+    if (num % 3 === 0) {
+      face || setFace(true);
+    } else {
+      face && setFace(false);
+    }
+  }, [num]);
+
   const setStyle = {
     color: "red",
     fontSize: "18px"
@@ -15,7 +29,10 @@ const App = () => {
       <ColorfulMessage color="red">
         propsのチルドレンを使っています
       </ColorfulMessage>
-      <button onClick={onClickButton}>ボタン</button>
+      <button onClick={onClickButton}>カウントアップ</button>
+      <p>{num}</p>
+      <button onClick={onClickRe}>再レンダリング</button>
+      {face && <p>aaa</p>}
     </>
   );
 };

@@ -1,8 +1,8 @@
 import React from "react";
 
-const ColorfulMessage = (props) => {
+export const ColorfulMessage = (props) => {
   //propsのオブジェクト要素を一旦各変数に格納すると見やすくなる
-  console.log(props);
+  // console.log(props);
   const { color, message, children } = props;
   const setStyle = {
     color, //color: color,の略
@@ -17,4 +17,4 @@ const ColorfulMessage = (props) => {
   );
 };
 
-export default ColorfulMessage;
+// export default ColorfulMessage;
